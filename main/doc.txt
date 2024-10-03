@@ -1,0 +1,24 @@
+* Bluetooth SPP (Serial Port Profile) 
+    - Là một trong những giao thức được sử dụng phổ biến trong kết nối Bluetooth classic. 
+    Nó mô phỏng 1 cổng nối tiếp (serial port) và cho phép truyền dữ liệu giữa các thiết bị qua giao thức RFCOMM
+
+* SPP là gì
+    - Serial Port Profile (SPP) là một giao thức chuẩn cho phép truyền 
+    dữ liệu thông qua kết nối Bluetooth bằng cách mô phỏng một cổng nối tiếp
+    - SPP dựa trên giao thức RFCOMM (Radio Frequency Communication), một 
+    giao thức tầng cao sử dụng giao thức truyền dữ liệu giống như các cổng nối tiếp (RS-232)
+
+* Cách hoạt động
+    - SPP tạo một kết nối không dây giữa 2 thiết bị, một thiết bị sẽ đóng vai trò là server (chủ động chờ kết nối),
+     còn thiết bị kia là client (chủ động kết nối tới server)
+    - Sau khi kết nối được thiết lập, dữ liệu có thể được truyền qua lại giống như khi sử dụng một cổng nối tiếp vật lý
+
+* Các bước chính để sử dụng SPP
+    - Khởi tạo giao tiếp: Thiết lập 1 socket RFCOMM giữa các thiết bị
+    - Ghép đôi: thông thường các thiết bị sẽ cần phải ghép đôi trước khi giao tiếp qua Bluetooth SPP
+    - Kết nối: một thiết bị sẽ thực hiện việc kết nối tới thiết bị khác qua UUID của dịch vụ Bluetooth SPP
+    - Truyền dữ liệu: sau khi kết nối thành công, dữ liệu có thể truyền và nhận giống như qua cổng nối tiếp thông thường
+
+* Các hàm cần biết:
+    - esp_spp_start_srv(): tạo và khởi động SPP server
+    - esp_spp_stop_srv(): dừng toàn bộ SPP servers
